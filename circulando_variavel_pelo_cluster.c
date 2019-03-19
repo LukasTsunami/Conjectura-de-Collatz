@@ -19,7 +19,8 @@ main(int argc, char *argv[])
         if (rank == 0){
         	ret = MPI_Send(&variavel_transportada, 1, MPI_INT, 1, tag, MPI_COMM_WORLD);
 		ret = MPI_Recv(&variavel_transportada, 1, MPI_INT, 3, tag, MPI_COMM_WORLD, &status);
-        }
+                printf("Para circular as mensagens demorou: %f segundos - %d\n", novo_tempo, variavel_transportada);
+	}
 	else if (rank == 1){
 		ret = MPI_Recv(&variavel_transportada, 1, MPI_INT, 0, tag, MPI_COMM_WORLD, &status);
 		variavel_transportada++;
@@ -35,8 +36,6 @@ main(int argc, char *argv[])
 	}
 
 	novo_tempo = MPI_Wtime()-tempo_atual;
-        printf("Para circular as mensagens demorou: %f segundos - %d\n", novo_tempo, variavel_transportada);
-        
 	ret = MPI_Finalize();
 }
 
