@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Metadata{
+struct Metadata{
    int maximum;
    int number_that_generates_the_greatest_sequence;
 };
@@ -27,7 +27,7 @@ void main(){
 			maximum = returnn;
 			number_that_generates_the_greatest_sequence = current_number;
 		   }
-		   printf("\ncurrent [%d] contador [%d] | maximum [%d]\n",current_number,returnn,maximum);
+		   //printf("\ncurrent [%d] contador [%d] | maximum [%d]\n",current_number,returnn,maximum);
 		}
 		struct Metadata aux;
 		aux.maximum = maximum;
@@ -35,6 +35,7 @@ void main(){
 		return aux;
 	}
 
-	struct Metadata metaDataQualquer = get_maximum_sequence(10000);
+	long test_number = 111111;
+	struct Metadata metaDataQualquer = get_maximum_sequence(test_number);
 	printf("\nMaior numero = {%d} - Numero que gera = {%d}\n",metaDataQualquer.maximum, metaDataQualquer.number_that_generates_the_greatest_sequence);
 }
