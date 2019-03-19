@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct Metadata{
+   int maximum;
+   int number_that_generates_the_greatest_sequence;
+};
+
 void main(){
 	int collatz_conjecture(int number, int counter){
 		if(number == 1) return counter;
@@ -9,9 +14,27 @@ void main(){
 		collatz_conjecture(new_number, counter);
 	}
 
-	int number = 7;
-	int counter = 0;
-	int data = collatz_conjecture(number, counter);
 
-	printf("\nfim = %d \n",data);
+	struct Metadata get_maximum_sequence(int number){
+		int current_number = 1;
+		int number_that_generates_the_greatest_sequence = 0;
+		int maximum = -1;
+		for(; current_number <= number; current_number++){
+		   int counter = 0;
+		   int returnn = collatz_conjecture(current_number, counter);
+
+		   if(returnn > maximum){
+			maximum = returnn;
+			number_that_generates_the_greatest_sequence = current_number;
+		   }
+		   printf("\ncurrent [%d] contador [%d] | maximum [%d]\n",current_number,returnn,maximum);
+		}
+		struct Metadata aux;
+		aux.maximum = maximum;
+		aux.number_that_generates_the_greatest_sequence = number_that_generates_the_greatest_sequence;
+		return aux;
+	}
+
+	struct Metadata metaDataQualquer = get_maximum_sequence(10000);
+	printf("\nMaior numero = {%d} - Numero que gera = {%d}\n",metaDataQualquer.maximum, metaDataQualquer.number_that_generates_the_greatest_sequence);
 }
