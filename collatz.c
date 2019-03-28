@@ -8,7 +8,7 @@ struct Sequence{
 };
 
 long collatz_conjecture(long number, long counter);
-struct Sequence get_maximum_sequence(long number);	
+struct Sequence get_maximum_sequence(long initial, long number);	
 
 void main(int argc, char *argv[]){
    int ret, rank, size, tag = 0;
@@ -22,10 +22,17 @@ void main(int argc, char *argv[]){
 			int initial = 1;
 			long test_number = 111111;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
+			long ret0 = some_sequence.maximum;
 			long ret1 = MPI_Recv(&maximum, 1, MPI_LONG, 1, tag, MPI_COMM_WORLD, &status);
 			long ret2 = MPI_Recv(&maximum, 1, MPI_LONG, 2, tag, MPI_COMM_WORLD, &status);
 			long ret3 = MPI_Recv(&maximum, 1, MPI_LONG, 3, tag, MPI_COMM_WORLD, &status);
-			printf("ret0, ret1 %d ret2 %d ret3 %d",some_sequence.maximum, ret1, ret2, ret3);
+			printf("ret0, ret1 %d ret2 %d ret3 %d",ret0, ret1, ret2, ret3);
+			
+			if((ret0>ret1)&&(ret0>ret2)&&(ret0>ret3)) printf("\n ret0 é o maior");
+			if((ret1>ret0)&&(ret1>ret2)&&(ret1>ret3)) printf("\n ret1 é o maior");
+			if((ret2>ret1)&&(ret2>ret0)&&(ret2>ret3)) printf("\n ret2 é o maior");
+			if((ret3>ret1)&&(ret3>ret2)&&(ret3>ret0)) printf("\n ret3 é o maior");
+			printf("\nend of");
 	}
 	else if (rank == 1){
 			int initial = 111112;
@@ -47,7 +54,6 @@ void main(int argc, char *argv[]){
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
 	}
 
-	novo_tempo = MPI_Wtime()-tempo_atual;
 	ret = MPI_Finalize();
 }
 
