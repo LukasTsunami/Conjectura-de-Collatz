@@ -10,8 +10,9 @@ struct Sequence{
 long collatz_conjecture(long number, long counter);
 struct Sequence get_maximum_sequence(long number);	
 
-void main(){
+void main(int argc, char *argv[]){
    int ret, rank, size, tag = 0;
+	long maximum = 0;
 	MPI_Status status;
    ret = MPI_Init(&argc, &argv);
    ret = MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -21,28 +22,28 @@ void main(){
 			int initial = 1;
 			long test_number = 111111;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
-			long ret1 = MPI_Recv(&variavel_transportada, 1, MPI_LONG, 1, tag, MPI_COMM_WORLD, &status);
-			long ret2 = MPI_Recv(&variavel_transportada, 1, MPI_LONG, 2, tag, MPI_COMM_WORLD, &status);
-			long ret3 = MPI_Recv(&variavel_transportada, 1, MPI_LONG, 3, tag, MPI_COMM_WORLD, &status);
+			long ret1 = MPI_Recv(&maximum, 1, MPI_LONG, 1, tag, MPI_COMM_WORLD, &status);
+			long ret2 = MPI_Recv(&maximum, 1, MPI_LONG, 2, tag, MPI_COMM_WORLD, &status);
+			long ret3 = MPI_Recv(&maximum, 1, MPI_LONG, 3, tag, MPI_COMM_WORLD, &status);
 			printf("ret0, ret1 %d ret2 %d ret3 %d",some_sequence.maximum, ret1, ret2, ret3);
 	}
 	else if (rank == 1){
 			int initial = 111112;
 			long test_number = 222222;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
-			long maximum = some_sequence.maximum;
+			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
 	}else if (rank == 2){
 			int initial = 222223;
 			long test_number = 333333;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
-			long maximum = some_sequence.maximum;
+			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
 	}else if (rank == 3){
 			int initial = 333334;
 			long test_number = 444445;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
-			long maximum = some_sequence.maximum;
+			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
 	}
 
