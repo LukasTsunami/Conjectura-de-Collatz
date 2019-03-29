@@ -66,7 +66,7 @@ long collatz_conjecture(long number, long counter){
 }
 
 struct Sequence get_maximum_sequence(long initial, long number){
-	long current_number = 1;
+	long current_number = initial;
 	long number_that_generates_the_greatest_sequence = 0;
 	long maximum = -1;
 	for(; current_number <= number; current_number++){
