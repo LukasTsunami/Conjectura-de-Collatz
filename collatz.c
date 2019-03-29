@@ -30,8 +30,8 @@ void main(int argc, char *argv[]){
 			printf("\n maximum a %d",maximum);
 			long ret3 = MPI_Recv(&maximum, 1, MPI_LONG, 3, tag, MPI_COMM_WORLD, &status);
 			printf("\n maximum a %d",maximum);
-			
-			printf("ret0, ret1 %d ret2 %d ret3 %d",ret0, ret1, ret2, ret3);
+
+			printf("ret0 %d, ret1 %d ret2 %d ret3 %d",ret0, ret1, ret2, ret3);
 			
 			if((ret0>ret1)&&(ret0>ret2)&&(ret0>ret3)) printf("\n ret0 é o maior");
 			if((ret1>ret0)&&(ret1>ret2)&&(ret1>ret3)) printf("\n ret1 é o maior");
@@ -41,19 +41,19 @@ void main(int argc, char *argv[]){
 	}
 	else if (rank == 1){
 			int initial = 111112;
-			long test_number = 222222;
+			long test_number = 111111;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
 	}else if (rank == 2){
 			int initial = 222223;
-			long test_number = 333333;
+			long test_number = 111111;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
 	}else if (rank == 3){
 			int initial = 333334;
-			long test_number = 444445;
+			long test_number = 111111;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
