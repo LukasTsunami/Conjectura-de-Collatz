@@ -40,19 +40,19 @@ void main(int argc, char *argv[]){
 			printf("\nend of");
 	}
 	else if (rank == 1){
-			int initial = 111112;
+			int initial = 1;
 			long test_number = 111111;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
-			maximum = 700;
+			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
 	}else if (rank == 2){
-			int initial = 222223;
+			int initial = 1;
 			long test_number = 111111;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			maximum = 800;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
 	}else if (rank == 3){
-			int initial = 333334;
+			int initial = 1;
 			long test_number = 111111;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			maximum = 900;
