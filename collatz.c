@@ -32,8 +32,7 @@ void main(int argc, char *argv[]){
 			long maximumNode2 = maximum;
 			
 			ret = MPI_Recv(&maximum, 1, MPI_LONG, 3, tag, MPI_COMM_WORLD, &status);
-			long maximumNode3 = maximum;
-			printf("\n maximum a %d",maximum);
+			long maximumNode3 = maximum; 
 
 			printf("\nmaximumNode0 %d, maximumNode1 %d maximumNode2 %d maximumNode3 %d",maximumNode0, maximumNode1, maximumNode2, maximumNode3);
 			
