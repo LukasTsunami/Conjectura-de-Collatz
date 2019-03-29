@@ -24,21 +24,18 @@ void main(int argc, char *argv[]){
 			
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			long maximumNode0 = some_sequence.maximum;
-			printf("\n maximum a %d",maximumNode0);
 			
-			long ret1 = MPI_Recv(&maximum, 1, MPI_LONG, 1, tag, MPI_COMM_WORLD, &status);
-			printf("\n maximum a %d",maximum);
+			ret = MPI_Recv(&maximum, 1, MPI_LONG, 1, tag, MPI_COMM_WORLD, &status);
 			long maximumNode1 = maximum;
 			
-			long ret2 = MPI_Recv(&maximum, 1, MPI_LONG, 2, tag, MPI_COMM_WORLD, &status);
-			printf("\n maximum a %d",maximum);
+			ret = MPI_Recv(&maximum, 1, MPI_LONG, 2, tag, MPI_COMM_WORLD, &status);
 			long maximumNode2 = maximum;
 			
-			long ret3 = MPI_Recv(&maximum, 1, MPI_LONG, 3, tag, MPI_COMM_WORLD, &status);
+			ret = MPI_Recv(&maximum, 1, MPI_LONG, 3, tag, MPI_COMM_WORLD, &status);
 			long maximumNode3 = maximum;
 			printf("\n maximum a %d",maximum);
 
-			printf("maximumNode0 %d, maximumNode1 %d maximumNode2 %d maximumNode3 %d",maximumNode0, maximumNode1, maximumNode2, maximumNode3);
+			printf("\nmaximumNode0 %d, maximumNode1 %d maximumNode2 %d maximumNode3 %d",maximumNode0, maximumNode1, maximumNode2, maximumNode3);
 			
 			if((maximumNode0>maximumNode1)&&(maximumNode0>maximumNode2)&&(maximumNode0>maximumNode3)) printf("\n maximumNode0 é o maior");
 			if((maximumNode1>maximumNode0)&&(maximumNode1>maximumNode2)&&(maximumNode1>maximumNode3)) printf("\n maximumNode1 é o maior");
