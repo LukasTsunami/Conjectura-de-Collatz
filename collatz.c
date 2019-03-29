@@ -23,9 +23,8 @@ void main(int argc, char *argv[]){
 			long test_number = 111111;
 			
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
-			long ret0 = some_sequence.maximum;
-			printf("\n maximum a %d",maximum);
-			long maximumNode0 = maximum;
+			long maximumNode0 = some_sequence.maximum;
+			printf("\n maximum a %d",maximumNode0);
 			
 			long ret1 = MPI_Recv(&maximum, 1, MPI_LONG, 1, tag, MPI_COMM_WORLD, &status);
 			printf("\n maximum a %d",maximum);
