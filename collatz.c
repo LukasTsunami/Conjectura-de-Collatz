@@ -17,7 +17,7 @@ void main(int argc, char *argv[]){
    ret = MPI_Init(&argc, &argv);
    ret = MPI_Comm_rank(MPI_COMM_WORLD, &rank);
    ret = MPI_Comm_size(MPI_COMM_WORLD, &size);
-
+   double tempo_inicial = MPI_Wtime();
 	if (rank == 0){
 			int initial = 1;
 			long test_number = 10000;
@@ -40,7 +40,8 @@ void main(int argc, char *argv[]){
 			if((maximumNode1>maximumNode0)&&(maximumNode1>maximumNode2)&&(maximumNode1>maximumNode3)) printf("\n maximumNode1 é o maior");
 			if((maximumNode2>maximumNode1)&&(maximumNode2>maximumNode0)&&(maximumNode2>maximumNode3)) printf("\n maximumNode2 é o maior");
 			if((maximumNode3>maximumNode1)&&(maximumNode3>maximumNode2)&&(maximumNode3>maximumNode0)) printf("\n maximumNode3 é o maior");
-			printf("\nend of");
+			double novo_tempo = MPI_Wtime()-tempo_inicial;
+			printf("\n\nTempo de execucao = %f\n\n", novo_tempo);
 	}
 	else if (rank == 1){
 			int initial = 10001;
