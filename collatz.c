@@ -16,7 +16,7 @@ void main(){
 
 
 	struct Metadata get_maximum_sequence(int number){
-		int current_number = 100000;
+		int current_number = 1;
 		int number_that_generates_the_greatest_sequence = 0;
 		int maximum = -1;
 		for(; current_number <= number; current_number++){
@@ -35,7 +35,7 @@ void main(){
 		return aux;
 	}
 
-	long test_number = 150000;
+	long test_number = 40000;
 	struct Metadata metaDataQualquer = get_maximum_sequence(test_number);
 	printf("\nMaior numero = {%d} - Numero que gera = {%d}\n",metaDataQualquer.maximum, metaDataQualquer.number_that_generates_the_greatest_sequence);
 }
