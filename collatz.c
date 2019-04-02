@@ -1,12 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "mpi.h"
 
 struct Metadata{
    int maximum;
    int number_that_generates_the_greatest_sequence;
 };
 
-void main(){
+void main(int argc, char *argv[]){
+   int ret, rank, size, tag;
+   MPI_Status status;
+
+   ret = MPI_Init(&argc, &argv);
+
+   ret = MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+   ret = MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+   double tempo_inicial = MPI_Wtime();
+
 	int collatz_conjecture(int number, int counter){
 		if(number == 1) return counter;
 		counter++;
@@ -38,4 +49,7 @@ void main(){
 	long test_number = 40000;
 	struct Metadata metaDataQualquer = get_maximum_sequence(test_number);
 	printf("\nMaior numero = {%d} - Numero que gera = {%d}\n",metaDataQualquer.maximum, metaDataQualquer.number_that_generates_the_greatest_sequence);
+	double novo_tempo = MPI_Wtime()-tempo_inicial;
+	printf("\n\nTempo de execucao: %f \n\n",novo_tempo);
+	ret = MPI_Finalize();
 }
