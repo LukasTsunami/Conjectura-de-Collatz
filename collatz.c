@@ -20,7 +20,7 @@ void main(int argc, char *argv[]){
 
 	if (rank == 0){
 			int initial = 1;
-			long test_number = 111111;
+			long test_number = 10000;
 			
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			long maximumNode0 = some_sequence.maximum;
@@ -43,20 +43,20 @@ void main(int argc, char *argv[]){
 			printf("\nend of");
 	}
 	else if (rank == 1){
-			int initial = 1;
-			long test_number = 10000;
-			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
-			maximum = some_sequence.maximum;
-        	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
-	}else if (rank == 2){
 			int initial = 10001;
 			long test_number = 20000;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
-	}else if (rank == 3){
+	}else if (rank == 2){
 			int initial = 20001;
 			long test_number = 30000;
+			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
+			maximum = some_sequence.maximum;
+        	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
+	}else if (rank == 3){
+			int initial = 30001;
+			long test_number = 40000;
 			struct Sequence some_sequence = get_maximum_sequence(initial, test_number);
 			maximum = some_sequence.maximum;
         	ret = MPI_Send(&maximum, 1, MPI_LONG, 0, tag, MPI_COMM_WORLD);
