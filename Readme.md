@@ -6,8 +6,10 @@
 ### O que é
 - É um algortimo matemático que acreditam que ao conseguirmos solucionar a lógica por trás dos seus intervalos, vamos nos abrir para novas e importantes técnicas dentro da teoria dos números
 
-###Como funciona?
+### Como funciona?
+
 ```flow
+
 st=>start: Recebe um Número n
 op=>operation: n / 2
 op2=>operation: 3*n + 1
@@ -17,13 +19,14 @@ e=>end: To admin
 st->cond
 cond(yes)->op
 cond(no)->op2
-```
 
+```mermaid
 graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
+```
 
 - Dado um número inteiro positivo, aplicamos nele uma função F(x) tal que se o número em questão for um número ímpar, retornamos ele mesmo, multiplicado por três e somamos um (3*x + 1), porém se o mesmo for um número par, retornamos ele mesmo dividido por dois (x /2).
 - Após isso anotamos esse resultado em algum lugar.
