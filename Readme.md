@@ -20,7 +20,9 @@ st->cond
 cond(yes)->op
 cond(no)->op2
 
-```mermaid
+```
+
+```
 graph TD;
     A-->B;
     A-->C;
