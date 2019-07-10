@@ -40,6 +40,7 @@
 - Dividimos entre duas funções: a collatz_conjecture e a get_maximum_sequence.
 - A primeira apenas aplica o algoritmo para apenas um número
 - A segunda aplica o algoritmo para todos os números entre 2 e o número escolhido e descobre qual deles produz a maior sequencia de collatz.
+<img width="500" height="500" src="./sequential.svg">
 
 ### Algoritmo Paralelo - Dividindo em Clusters
 - Tendo um Cluster Homogêneo, vamos dividir a execução de diferentes execuções do algoritmo, tal que no final das execuções tenhamos uma entrega de resultados finais, mais rápida
