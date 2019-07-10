@@ -31,6 +31,7 @@
 
 #### As Branches:
 - Separamos em duas Branches: Uma com o Algoritmo Sequencial e a outra com o Algoritmo Paralelo. Desta forma fica fácil transitar entre ambos e ter um controle maior do código
+<img width="300" height="250" src="./branches.png">
 
 #### A biblioteca:
  - Decidimos utilizar a Biblioteca Mpi.h, para medir o tempo da execução dos algoritmos
@@ -47,6 +48,7 @@
  - Utilizamos o MPI_Comm_rank para definir qual o nó do Cluster executaríamos cada parte do algoritmo
  - O nó zero ficou como Master e aguarda a execução dos outros nós para só assim então, verificar qual a maior sequência e indicar quanto tempo demorou a execução
  - A barreira ficou restituida pela execução de três instruções MPI_Recv, uma para cada nó Slave.
+<img width="500" height="700" src="./parallel.svg">
 
 ### Conclusão
 - Tivemos sucesso ao executar o algortimo no cluster, tendo eficiência de N-1 vezes o tamanho do Cluster.
@@ -57,4 +59,3 @@
 - Também seria legal utilizarmos uma abordagem para tratar erros, e mudanças no número de nós
 - Por fim acredito que seria interessante fazermos um balanceador de carga, que conseguisse distinguir quanto cada nó aguentaria executar, mas principalmente, saber quanto poderíamos aproveitar do nó zero, além do que ele já executa, porquê estamos perdendo um nó ao utilizar ele como master e apenas como sincronizador.
 
-###End
