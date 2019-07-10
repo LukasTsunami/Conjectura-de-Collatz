@@ -22,27 +22,8 @@
 - Dado um número X dentro dos números reais, gostaríamos de saber qual o número no intervalo de 2 até o número X escolhido, que produz a maior sequência aplicando a Conjectura de Collatz.
 - Exemplo: Passado o número 7, aplicamos o algoritmo para o 2, para o 3, para o 4, para o 5, para o 6 e para o 7. Dentro dessas seis execuções do algoritmo, verificamos qual deles retornou a sequência com mais números.
 
-```flow
-recebe_numero=>start: Recebe um Número n
-cria_intervalo=>operation: Cria um conjunto com números num intervalo de 2 até n
-existe_mais_numeros_intervalo=>condition: Existe mais algum número no intervalo?
-verifica_maior_sequencia=>end: Verifica qual a maior sequencia
-executa_conjectura=>operation: Executa Conjectura de Collatz
-salva_resultado=>operation: Salva resultado na Sequencia
-cond_resultado_deu_um=>condition: O resultado deu 1?
-end_retorna_sequencia=>operation: Retorna Sequencia e Remove número do intervalo de execuções
+<img width="500" height="500" src="./maiorsequencia.png">
 
-recebe_numero->cria_intervalo
-cria_intervalo->existe_mais_numeros_intervalo
-existe_mais_numeros_intervalo(yes)->executa_conjectura
-existe_mais_numeros_intervalo(no)->verifica_maior_sequencia
-executa_conjectura->salva_resultado
-salva_resultado->cond_resultado_deu_um
-cond_resultado_deu_um(yes)->end_retorna_sequencia
-cond_resultado_deu_um(no)->executa_conjectura
-end_retorna_sequencia->existe_mais_numeros_intervalo
-
-```
 
 ### Algoritmo Sequencial x Paralelo
  - Decidimos fazer os testes coma  Conjectura de Collatz com dois algoritmos distintos: um sequencial e um pararelo, derivado do sequencial.
