@@ -61,10 +61,10 @@
   <img width="500" height="700" src="./parallel.svg">
 
 ### Como executar
-
+```
 gcc -o collatz.c executable
 mpirun -np 4 -h maquinas executable
-
+```
 ### Conclusão
 
 - Tivemos sucesso ao executar o algortimo no cluster, tendo eficiência de N-1 vezes o tamanho do Cluster.
