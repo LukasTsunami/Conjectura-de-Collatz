@@ -8,27 +8,7 @@
 
 ### Como funciona?
 
-```flow
-
-st=>start: Recebe um Número n
-op=>operation: n / 2
-op2=>operation: 3*n + 1
-cond=>condition: É par?
-e=>end: To admin
-
-st->cond
-cond(yes)->op
-cond(no)->op2
-
-```
-
-```
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
+![](https://raw.githubusercontent.com/LukasTsunami/Conjectura-de-Collatz/master/conjectura.svg)
 
 - Dado um número inteiro positivo, aplicamos nele uma função F(x) tal que se o número em questão for um número ímpar, retornamos ele mesmo, multiplicado por três e somamos um (3*x + 1), porém se o mesmo for um número par, retornamos ele mesmo dividido por dois (x /2).
 - Após isso anotamos esse resultado em algum lugar.
