@@ -7,7 +7,7 @@
 - É um algortimo matemático que acreditam que ao conseguirmos solucionar a lógica por trás dos seus intervalos, vamos nos abrir para novas e importantes técnicas dentro da teoria dos números
 
 ### Como funciona?
-<img width="500" height="500" src="./conjectura.png">
+<img width="400" height="500" src="./conjectura.png">
 
 - Dado um número inteiro positivo, aplicamos nele uma função F(x) tal que se o número em questão for um número ímpar, retornamos ele mesmo, multiplicado por três e somamos um (3*x + 1), porém se o mesmo for um número par, retornamos ele mesmo dividido por dois (x /2).
 - Após isso anotamos esse resultado em algum lugar.
